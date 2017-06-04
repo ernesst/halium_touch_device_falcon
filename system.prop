@@ -1,15 +1,13 @@
 # system.prop for falcon
 ro.product.device=falcon
 
-# audio
-ro.audio.monitorRotation=1
-
 
 # Audio
 audio.offload.24bit.enable=false
 audio.offload.buffer.size.kb=32
 audio.offload.gapless.enabled=true
 audio.offload.multiple.enabled=false
+#ro.audio.monitorRotation=1
 
 av.offload.enable=false
 av.streaming.offload.enable=false
@@ -55,7 +53,6 @@ debug.composition.type=dyn
 debug.enabletr=0
 debug.mdpcomp.logs=0
 debug.sf.hw=1
-debug.egl.hw=1
 persist.hwc.mdpcomp.enable=true
 ro.opengles.version=196608
 ro.sf.lcd_density=320
@@ -66,7 +63,6 @@ ro.qc.sdk.izat.premium_enabled=1
 ro.qc.sdk.izat.service_mask=0x5
 persist.gps.qc_nlp_in_use=1
 persist.loc.nlp_name=com.qualcomm.services.location
-ril.num_slots=2
 
 # NITZ
 persist.rild.nitz_long_ons_0=
@@ -82,7 +78,6 @@ persist.rild.nitz_short_ons_3=
 persist.timed.enable=true
 ro.qualcomm.cabl=0
 ro.vendor.extension_library=/system/vendor/lib/libqc-opt.so
-
 
 # Radio
 persist.radio.apm_sim_not_pwdn=1

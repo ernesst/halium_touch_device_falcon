@@ -26,37 +26,32 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-on init
-    # External storage directories
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /storage/sdcard1 0700 root root
-
-    export SECONDARY_STORAGE /storage/sdcard1
-
-    # Support legacy paths
-    symlink /storage/sdcard1 /mnt/sdcard1
-    symlink /storage/sdcard1 /external_sd
-
-on post-fs-data
-    # Create directory for titan sensors
-    mkdir /data/misc/sensor 0775
-    exec /system/bin/chown -R input:input /data/misc/sensor
-
 on boot
-    # titan/thea  sensors
-    chown root input /sys/class/sig_sensor/g_sensor/en_sig_motion
-    chown root input /sys/class/srot_sensor/g_sensor/en_disp_rotation
+    # AK9863 Magnetometer
+    chown compass compass /sys/class/compass/akm8963/enable_acc
+    chown compass compass /sys/class/compass/akm8963/enable_mag
+    chown compass compass /sys/class/compass/akm8963/enable_ori
+    chown compass compass /sys/class/compass/akm8963/delay_acc
+    chown compass compass /sys/class/compass/akm8963/delay_mag
+    chown compass compass /sys/class/compass/akm8963/delay_ori
+    chown compass compass /sys/class/compass/akm8963/accel
+
+    # CT406 Light sensor and proximity
+    chown system system /sys/module/ct406/parameters/als_enable
+    chmod 0660 /sys/module/ct406/parameters/als_enable
+    chown system system /sys/module/ct406/parameters/prox_enable
+    chmod 0660 /sys/module/ct406/parameters/prox_enable
+    chown system system /sys/module/ct406/parameters/ip_enable
+    chmod 0660 /sys/module/ct406/parameters/ip_enable
+    chown system system /sys/module/ct406/parameters/als_delay
+    chmod 0660 /sys/module/ct406/parameters/als_delay
 
 # Services start here
 
-service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
-    class late_start
-    disabled
-
-service sensord /system/bin/sensord
-    user input
-    group input
+service akmd8963 /system/bin/akmd8963
     class main
+    user compass
+    group compass misc input
 
 service init_wlan_bt /system/bin/sh /system/etc/init_wlan_bt.sh
     class main
