@@ -1,7 +1,7 @@
-Unified Device Tree for Moto G 2014 (titan)
+Unified Device Tree for Moto G 2014 (falcon)
 ===========================================
 
-The Motorola Moto G 2014 (codenamed _"titan"_) is a mid-range smartphone from Motorola mobility.
+The Motorola Moto G 2014 (codenamed _"falcon"_) is a mid-range smartphone from Motorola mobility.
 It was announced on September 2014.
 
 Basic   | Spec Sheet

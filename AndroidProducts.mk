@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/full_titan.mk
+    $(LOCAL_DIR)/full_falcon.mk

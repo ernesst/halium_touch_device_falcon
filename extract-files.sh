@@ -3,5 +3,5 @@
 set -e
 
 export VENDOR=motorola
-export DEVICE=titan
+export DEVICE=falcon
 ./../../$VENDOR/msm8226-common/extract-files.sh $@

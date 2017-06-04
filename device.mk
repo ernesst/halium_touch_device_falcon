@@ -14,12 +14,12 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/motorola/titan
+LOCAL_PATH := device/motorola/falcon
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # call the proprietary setup
-$(call inherit-product-if-exists, vendor/motorola/titan/titan-vendor.mk)
+$(call inherit-product-if-exists, vendor/motorola/falcon/falcon-vendor.mk)
 
 
 #PRODUCT_COPY_FILES += \
@@ -68,19 +68,19 @@ PRODUCT_COPY_FILES += \
 
 # Ubuntu Overlay Files
 PRODUCT_COPY_FILES += \
-    device/motorola/titan/ubuntu/adbd.conf:system/ubuntu/etc/init/adbd.conf \
-    device/motorola/titan/ubuntu/bluetooth-touch-titan.conf:system/ubuntu/etc/init/bluetooth-touch-titan.conf \
-    device/motorola/titan/ubuntu/titan.conf:system/ubuntu/etc/ubuntu-touch-session.d/titan.conf \
-    device/motorola/titan/ubuntu/set-brightness-titan.conf:system/ubuntu/etc/set-brightness-titan.conf \
-    device/motorola/titan/ubuntu/ubuntu-location-service.conf:system/ubuntu/etc/ubuntu-location-service.conf \
-    device/motorola/titan/ubuntu/70-titan.rules:system/ubuntu/usr/lib/lxc-android-config/70-titan.rules \
-    device/motorola/titan/rootdir/root/init.qcom.factory.sh:root/init.qcom.factory.sh \
-    device/motorola/titan/ubuntu/config.xml:system/ubuntu/usr/share/repowerd/device-configs/config-titan.xml \
-    device/motorola/titan/ubuntu/ofono.override:system/ubuntu/etc/init/ofono.override
+    device/motorola/falcon/ubuntu/adbd.conf:system/ubuntu/etc/init/adbd.conf \
+    device/motorola/falcon/ubuntu/bluetooth-touch-falcon.conf:system/ubuntu/etc/init/bluetooth-touch-falcon.conf \
+    device/motorola/falcon/ubuntu/falcon.conf:system/ubuntu/etc/ubuntu-touch-session.d/falcon.conf \
+    device/motorola/falcon/ubuntu/set-brightness-falcon.conf:system/ubuntu/etc/set-brightness-falcon.conf \
+    device/motorola/falcon/ubuntu/ubuntu-location-service.conf:system/ubuntu/etc/ubuntu-location-service.conf \
+    device/motorola/falcon/ubuntu/70-falcon.rules:system/ubuntu/usr/lib/lxc-android-config/70-falcon.rules \
+    device/motorola/falcon/rootdir/root/init.qcom.factory.sh:root/init.qcom.factory.sh \
+    device/motorola/falcon/ubuntu/config.xml:system/ubuntu/usr/share/repowerd/device-configs/config-falcon.xml \
+    device/motorola/falcon/ubuntu/ofono.override:system/ubuntu/etc/init/ofono.override
 
 # Configs
 PRODUCT_COPY_FILES += \
-    device/motorola/titan/rootdir/root/init_wlan_bt.sh:system/etc/init_wlan_bt.sh
+    device/motorola/falcon/rootdir/root/init_wlan_bt.sh:system/etc/init_wlan_bt.sh
 
 
 # Permissions
@@ -156,11 +156,11 @@ PRODUCT_PACKAGES += \
     setup_fs
 
 # FM
-PRODUCT_PACKAGES += \
-    FM2 \
-    FMRecord \
-    libqcomfm_jni \
-    qcom.fmradio
+#PRODUCT_PACKAGES += \
+#    FM2 \
+#    FMRecord \
+#    libqcomfm_jni \
+#    qcom.fmradio
 
 # GPS
 PRODUCT_PACKAGES += \

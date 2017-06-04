@@ -1,5 +1,5 @@
-# system.prop for titan
-ro.product.device=titan
+# system.prop for falcon
+ro.product.device=falcon
 
 # audio
 ro.audio.monitorRotation=1

@@ -22,7 +22,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-LOCAL_PATH := device/motorola/titan
+LOCAL_PATH := device/motorola/falcon
 
 include $(call all-subdir-makefiles)
 

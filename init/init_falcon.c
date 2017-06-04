@@ -57,23 +57,23 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_get("ro.boot.radio", radio);
 
-    property_set("ro.product.model", "Moto G 2014");
+    property_set("ro.product.model", "Moto G");
 
     if (ISMATCH(radio, "0x1")) {
-        /* XT1063 */
-        property_set("ro.product.device", "titan_umts");
-        property_set("ro.build.description", "titan_retuglb-user 5.0.2 LXB22.99-24.4 8 release-keys");
-        property_set("ro.build.fingerprint", "motorola/titan_retuglb/titan_umts:5.0.2/LXB22.99-24.4/8:user/release-keys");
-        property_set("ro.build.product", "titan_umts");
+        /*xt1032 */
+        property_set("ro.product.device", "falcon_umts");
+        property_set("ro.build.description", "falcon_retuglb-user 5.0.2 LXB22.99-36 35 release-keys");
+        property_set("ro.build.fingerprint", "motorola/falcon_retuglb/falcon_umts:5.0.2/LXB22.99-36/35:user/release-keys");
+        property_set("ro.build.product", "falcon_umts");
         property_set("ro.mot.build.customerid", "retusa_glb");
         property_set("ro.telephony.default_network", "0");
         property_set("persist.radio.multisim.config", "");
     } else if (ISMATCH(radio, "0x5")) {
         /*XT1068 */
-        property_set("ro.product.device", "titan_umtsds");
-        property_set("ro.build.description", "titan_retaildsds-user 5.0.2 LXB22.99-24.4 8 release-keys");
-        property_set("ro.build.fingerprint", "motorola/titan_retaildsds/titan_umtsds:5.0.2/LXB22.99-24.4/8:user/release-keys");
-        property_set("ro.build.product", "titan_umtsds");
+        property_set("ro.product.device", "falcon_umtsds");
+        property_set("ro.build.description", "falcon_retaildsds-user 5.0.2 LXB22.99-24.4 8 release-keys");
+        property_set("ro.build.fingerprint", "motorola/falcon_retaildsds/falcon_umtsds:5.0.2/LXB22.99-24.4/8:user/release-keys");
+        property_set("ro.build.product", "falcon_umtsds");
         property_set("ro.mot.build.customerid", "retaildsdsall");
         property_set("ro.telephony.default_network", "0,1");
         property_set("persist.radio.multisim.config", "dsds");
@@ -81,19 +81,19 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("persist.radio.plmn_name_cmp", "1");
     } else if (ISMATCH(radio, "0x6")) {
         /* XT1064 */
-        property_set("ro.product.device", "titan_umts");
-        property_set("ro.build.description", "titan_retuaws-user 5.0.2 LXB22.99-24.4 8 release-keys");
-        property_set("ro.build.fingerprint", "motorola/titan_retuaws/titan_umts:5.0.2/LXB22.99-24.4/8:user/release-keys");
-        property_set("ro.build.product", "titan_umts");
+        property_set("ro.product.device", "falcon_umts");
+        property_set("ro.build.description", "falcon_retuaws-user 5.0.2 LXB22.99-24.4 8 release-keys");
+        property_set("ro.build.fingerprint", "motorola/falcon_retuaws/falcon_umts:5.0.2/LXB22.99-24.4/8:user/release-keys");
+        property_set("ro.build.product", "falcon_umts");
         property_set("ro.mot.build.customerid", "retusa_aws");
         property_set("ro.telephony.default_network", "0");
         property_set("persist.radio.multisim.config", "");
     } else if (ISMATCH(radio, "0x7")) {
         /* XT1069 */
-        property_set("ro.product.device", "titan_udstv");
-        property_set("ro.build.description", "titan_retbr_dstv-user 5.0.2 LXB22.99-24.4 8 release-keys");
-        property_set("ro.build.fingerprint", "motorola/titan_retbr_dstv/titan_udstv:5.0.2/LXB22.99-24.4/8:user/release-keys");
-        property_set("ro.build.product", "titan_udstv");
+        property_set("ro.product.device", "falcon_udstv");
+        property_set("ro.build.description", "falcon_retbr_dstv-user 5.0.2 LXB22.99-24.4 8 release-keys");
+        property_set("ro.build.fingerprint", "motorola/falcon_retbr_dstv/falcon_udstv:5.0.2/LXB22.99-24.4/8:user/release-keys");
+        property_set("ro.build.product", "falcon_udstv");
         property_set("ro.mot.build.customerid", "retbr");
         property_set("ro.telephony.default_network", "0,1");
         property_set("persist.radio.multisim.config", "dsds");

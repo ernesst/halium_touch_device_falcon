@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
--include vendor/motorola/titan/BoardConfigVendor.mk
+-include vendor/motorola/falcon/BoardConfigVendor.mk
 
-DEVICE_PATH := device/motorola/titan
+DEVICE_PATH := device/motorola/falcon
 
 include $(call all-makefiles-under,$(DEVICE_PATH))
 
@@ -42,7 +42,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
-TARGET_KERNEL_CONFIG := titan_ubuntu_defconfig
+TARGET_KERNEL_CONFIG := falcon_ubuntu_defconfig
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 vmalloc=400M utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -54,10 +54,10 @@ TARGET_KERNEL_SOURCE := kernel/motorola/msm8226
 # Vendor Unification Init
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_PATH)/init/init_titan.c
+TARGET_LIBINIT_DEFINES_FILE := $(DEVICE_PATH)/init/init_falcon.c
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := titan,titan_umts,titan_udstv,titan_umtsds,titan_retaildsds,XT1068,XT1064,XT1063,XT1069
+TARGET_OTA_ASSERT_DEVICE := falcon,falcon_umts,falcon_udstv,falcon_umtsds,falcon_retaildsds,XT1068,XT1064,XT1063,XT1069
 
 # Board
 TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
@@ -190,4 +190,4 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 #TARGET_LDPRELOAD := libNimsWrap.so
 
 # inherit from the proprietary version
--include vendor/motorola/titan/BoardConfigVendor.mk
+-include vendor/motorola/falcon/BoardConfigVendor.mk
