@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
--include vendor/motorola/falcon/BoardConfigVendor.mk
-
 DEVICE_PATH := device/motorola/falcon
 
 include $(call all-makefiles-under,$(DEVICE_PATH))
@@ -191,3 +189,4 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # inherit from the proprietary version
 -include vendor/motorola/falcon/BoardConfigVendor.mk
+-include vendor/motorola/msm8226-common-vendor/BoardConfigVendor.mk
