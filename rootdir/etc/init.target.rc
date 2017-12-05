@@ -26,31 +26,69 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+#on property:sys.usb.config=mtp
+#    write /sys/class/android_usb/android0/enable 0
+#    write /sys/class/android_usb/android0/bDeviceClass 0
+#    write /sys/class/android_usb/android0/bDeviceSubClass 0
+#    write /sys/class/android_usb/android0/bDeviceProtocol 0
+#    write /sys/class/android_usb/android0/idVendor 0x22b8
+#    write /sys/class/android_usb/android0/idProduct 0x2e82
+#    write /sys/class/android_usb/android0/functions mtp
+#    write /sys/class/android_usb/android0/enable 1
+#    setprop sys.usb.state ${sys.usb.config}
+
+#on property:sys.usb.config=mtp,adb
+#    write /sys/class/android_usb/android0/enable 0
+#    write /sys/class/android_usb/android0/bDeviceClass 0
+#    write /sys/class/android_usb/android0/bDeviceSubClass 0
+#    write /sys/class/android_usb/android0/bDeviceProtocol 0
+#    write /sys/class/android_usb/android0/idVendor 0x22b8
+#    write /sys/class/android_usb/android0/idProduct 0x2e76
+#    write /sys/class/android_usb/android0/functions mtp,adb
+#    write /sys/class/android_usb/android0/enable 1
+#    setprop sys.usb.state ${sys.usb.config}
+
+on init
+    # External storage directories
+    # mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
+    # mkdir /storage/sdcard1 0700 root root
+
+    # export SECONDARY_STORAGE /storage/sdcard1
+
+    # Support legacy paths
+    # symlink /storage/sdcard1 /mnt/sdcard1
+    # symlink /storage/sdcard1 /external_sd
+
+on post-fs-data
+    # Create directory for titan sensors
+    mkdir /data/misc/sensor 0775
+    exec /system/bin/chown -R input:input /data/misc/sensor
+
 on boot
     # AK9863 Magnetometer
-    chown compass compass /sys/class/compass/akm8963/enable_acc
-    chown compass compass /sys/class/compass/akm8963/enable_mag
-    chown compass compass /sys/class/compass/akm8963/enable_ori
-    chown compass compass /sys/class/compass/akm8963/delay_acc
-    chown compass compass /sys/class/compass/akm8963/delay_mag
-    chown compass compass /sys/class/compass/akm8963/delay_ori
-    chown compass compass /sys/class/compass/akm8963/accel
+    chown root input /sys/class/compass/akm8963/enable_acc
+    chown root input /sys/class/compass/akm8963/enable_mag
+    chown root input /sys/class/compass/akm8963/enable_ori
+    chown root input /sys/class/compass/akm8963/delay_acc
+    chown root input /sys/class/compass/akm8963/delay_mag
+    chown root input /sys/class/compass/akm8963/delay_ori
+    chown root input /sys/class/compass/akm8963/accel
 
     # CT406 Light sensor and proximity
-    chown system system /sys/module/ct406/parameters/als_enable
-    chmod 0660 /sys/module/ct406/parameters/als_enable
-    chown system system /sys/module/ct406/parameters/prox_enable
-    chmod 0660 /sys/module/ct406/parameters/prox_enable
-    chown system system /sys/module/ct406/parameters/ip_enable
-    chmod 0660 /sys/module/ct406/parameters/ip_enable
-    chown system system /sys/module/ct406/parameters/als_delay
-    chmod 0660 /sys/module/ct406/parameters/als_delay
+    chown root input /sys/module/ct406/parameters/als_enable
+    chmod 0666 /sys/module/ct406/parameters/als_enable
+    chown root input /sys/module/ct406/parameters/prox_enable
+    chmod 0666 /sys/module/ct406/parameters/prox_enable
+    chown root input /sys/module/ct406/parameters/ip_enable
+    chmod 0666 /sys/module/ct406/parameters/ip_enable
+    chown root input /sys/module/ct406/parameters/als_delay
+    chmod 0666 /sys/module/ct406/parameters/als_delay
 
 # Services start here
 
 service akmd8963 /system/bin/akmd8963
     class main
-    user compass
+    user root
     group compass misc input
 
 service init_wlan_bt /system/bin/sh /system/etc/init_wlan_bt.sh

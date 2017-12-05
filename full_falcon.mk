@@ -27,4 +27,5 @@ PRODUCT_BRAND := motorola
 PRODUCT_MODEL := falcon
 PRODUCT_MANUFACTURER := motorola
 
+$(call inherit-product, vendor/motorola/msm8226-common/msm8226-common-vendor.mk)
 $(call inherit-product, device/motorola/falcon/mdt.mk)

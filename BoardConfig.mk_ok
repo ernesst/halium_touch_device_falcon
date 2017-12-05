@@ -41,7 +41,7 @@ TARGET_NO_BOOTLOADER := true
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 TARGET_KERNEL_CONFIG := falcon_ubuntu_defconfig
-BOARD_KERNEL_CMDLINE := androidboot.bootdevice=msm_sdcc.1 androidboot.hardware=qcom vmalloc=400M utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags audit=0 selinux=0
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 vmalloc=400M utags.blkdev=/dev/block/platform/msm_sdcc.1/by-name/utags
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
@@ -101,8 +101,7 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-
+#OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 # FM
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
@@ -189,9 +188,5 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 #TARGET_LDPRELOAD := libNimsWrap.so
 
 # inherit from the proprietary version
--include vendor/motorola/falcon/BoardConfigVendor.mk
-#-include vendor/motorola/msm8226-common-vendor/BoardConfigVendor.mk
-#-include vendor/motorola/falcon/falcon-vendor.mk
--include vendor/motorola/falcon/falcon-vendor-blobs.mk
+-include vendor/motorola/falcon/falcon-vendor.mk
 -include vendor/motorola/msm8226-common/msm8226-common-vendor.mk
--include vendor/motorola/msm8226-common/msm8226-common-vendor-blobs.mk

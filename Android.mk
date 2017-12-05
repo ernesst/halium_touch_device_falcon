@@ -18,11 +18,10 @@
 # named (liblights.tuna), and must build everywhere, or limit themselves
 # to only building on ARM if they include assembly. Individual makefiles
 # are responsible for having their own logic, for fine-grained control.
-qsdfqsf
+
 LOCAL_PATH := $(call my-dir)
 
 ifeq ($(TARGET_DEVICE),falcon)
-dffsddsdfsd
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
